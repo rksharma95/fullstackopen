@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title":"cross-origin resource sharing",
+    "author":"expressjs official doc",
+    "url":"http://expressjs.com/en/resources/middleware/cors.html",
+    "likes": "150"
+
+}
