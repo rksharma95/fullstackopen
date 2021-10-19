@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/616ed44c272c8781e59b000
+Content-Type: application/json
+
+{
+  "title":"the title is updated",
+  "author": "expressjs official doc",
+  "url":"http://expressjs.com/en/resources/middleware/cors.html",
+  "likes": 150
+}
