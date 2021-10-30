@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
 const helper = require('../utils/test_helper')
-const api = supertest(app)
 const Blog = require('../models/blog')
+
+const api = supertest(app)
+
 
 beforeEach(async () => {
   await Blog.deleteMany({})
@@ -136,7 +138,6 @@ describe('updation a blog entry', () => {
     expect(titles).toContain(blogToBeUpdated.title)
   })
 })
-
 
 afterAll(() => {
   mongoose.connection.close()
