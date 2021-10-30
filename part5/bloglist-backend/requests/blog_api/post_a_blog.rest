@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld191c2VyMiIsImlkIjoiNjE3OTgxZjYwZDIxZTEwOTk5Y2YwZGIyIiwiaWF0IjoxNjM1MzUzMTAzLCJleHAiOjE2MzUzNTY3MDN9.4zAP2cjBpALicGpvJCyO71zc4gvtoodJv-O-Km6yYD0
+
+{
+    "title":"third blog of second  user",
+    "author":"new_user",
+    "url":"http://expressjs.com/en/resources/middleware/cors.html",
+    "likes": "150"
+
+}
