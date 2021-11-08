@@ -36,7 +36,8 @@ blogRouter.post('/', userExtractor, async (request, response, next) => {
 
 blogRouter.delete('/:id', userExtractor, async (request, response, next) => {
   const user = request.user
-  if(user.blogs.contains(request.params.id))
+  const userBlogs = user.blogs.map(blog => blog.toString())
+  if(userBlogs.includes(request.params.id))
   {
     const deletedBlog = await Blog.findByIdAndDelete(request.params.id)
     if(deletedBlog){

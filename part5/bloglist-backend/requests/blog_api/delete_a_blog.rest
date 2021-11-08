@@ -1,2 +1,2 @@
-DELETE http://localhost:3003/api/blogs/617982fad4092ae8226a1a9d
-Authorization: bearer espensjsbbvbsdjnvvmm.mkvskvnvnvmv
+DELETE http://localhost:3003/api/blogs/6187682fb90f53c6983cda40
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld191c2VyMiIsImlkIjoiNjE3OTgxZjYwZDIxZTEwOTk5Y2YwZGIyIiwiaWF0IjoxNjM2Mjc1NDk5LCJleHAiOjE2MzYyNzkwOTl9.pJIswWz4nZy-dP-RdOnshXiGkP1ezcxA3u6ekbrzR4s
