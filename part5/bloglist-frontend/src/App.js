@@ -19,10 +19,10 @@ const App = () => {
   useEffect(() => {
     blogService.getAll().then(blogs =>
       setBlogs( blogs.sort((a, b) => {
-          return a.likes > b.likes ? -1 : 1
-        }) 
+        return a.likes > b.likes ? -1 : 1
+      })
       )
-    )  
+    )
   }, [])
 
   useEffect(() => {
@@ -36,31 +36,31 @@ const App = () => {
 
   const loginForm = () => (
     <div>
-        <h2>Log in to application</h2>
-        <form onSubmit={handleLogin}>
-          <div>
-            username
-            <input
-              type="text"
-              value={username}
-              name="username"
-              onChange={({target}) => setUsername(target.value)}
-            />
-          </div>
-          <div>
-            password
-            <input 
-              type="password"
-              value={password}
-              name="password"
-              onChange={({target}) => setPassword(target.value)}
-            />
-          </div>
-          <div>
-            <button type="submit">login</button>
-          </div>  
-        </form>
-      </div>
+      <h2>Log in to application</h2>
+      <form onSubmit={handleLogin}>
+        <div>
+          username
+          <input
+            type="text"
+            value={username}
+            name="username"
+            onChange={({ target }) => setUsername(target.value)}
+          />
+        </div>
+        <div>
+          password
+          <input
+            type="password"
+            value={password}
+            name="password"
+            onChange={({ target }) => setPassword(target.value)}
+          />
+        </div>
+        <div>
+          <button type="submit">login</button>
+        </div>
+      </form>
+    </div>
   )
 
   const blogForm = () => (
@@ -73,7 +73,7 @@ const App = () => {
     event.preventDefault()
 
     try{
-      const user = await loginService.login({username, password})
+      const user = await loginService.login({ username, password })
       window.localStorage.setItem('loggedBlogAppUser', JSON.stringify(user))
       blogService.setToken(user.token)
       setUser(user)
@@ -90,7 +90,7 @@ const App = () => {
   }
 
   const addBlog = async (newBlog) => {
-    
+
     try{
       blogFormRef.current.toggleVisibility()
       blogService.create(newBlog)
@@ -120,7 +120,7 @@ const App = () => {
       blogService.deleteOne(id)
         .then(item => {
           setBlogs(blogs.filter(blog => blog.id !== item.id))
-        }) 
+        })
     }
     catch(exception){
       setMessage('error deleting a blog')
@@ -134,35 +134,35 @@ const App = () => {
     window.localStorage.clear()
     setUser(null)
   }
-  
+
   const likePost = async(blog) => {
-    const updatedBlog = await blogService.update({...blog, likes:blog.likes+1})
-    setBlogs(blogs.map(blog => 
+    const updatedBlog = await blogService.update({ ...blog, likes:blog.likes+1 })
+    setBlogs(blogs.map(blog =>
       blog.id===updatedBlog.id?
-      {...updatedBlog, likes:updatedBlog.likes+1}:
-      blog))
+        { ...updatedBlog, likes:updatedBlog.likes+1 }:
+        blog))
   }
 
   return (
     <div>
       <Notification message={message} isError={isError}/>
       {user === null && loginForm()}
-      {user !== null && 
+      {user !== null &&
         <div>
           <h2>blogs</h2>
           {`${user.name} logged in`}
           <button onClick={handleLogout}>logout</button>
           {blogForm()}
-        <div>
-          {blogs.map(blog =>
-            <Blog key={blog.id} 
-              blog={blog} 
-              likePost={likePost}
-              deletePost={deleteBlog}/>
-          )}
+          <div>
+            {blogs.map(blog =>
+              <Blog key={blog.id}
+                blog={blog}
+                likePost={likePost}
+                deletePost={deleteBlog}/>
+            )}
+          </div>
         </div>
-        </div>
-      } 
+      }
     </div>
   )
 }

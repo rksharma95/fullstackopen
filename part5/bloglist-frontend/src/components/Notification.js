@@ -10,9 +10,9 @@ const error = {
   marginBottom:'10px'
 }
 
-const success = {...error, color:'green'}
+const success = { ...error, color:'green' }
 
-const Notification = ({message, isError}) => {
+const Notification = ({ message, isError }) => {
   if(message === null){
     return null
   }

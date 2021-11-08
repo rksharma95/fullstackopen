@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
-const Blog = ({blog, likePost, deletePost}) => {
+const Blog = ({ blog, likePost, deletePost }) => {
   const [visible, setVisible] = useState(false)
-  
+
   const toggleVisibility = () => {
     setVisible(!visible)
   }
@@ -16,7 +16,7 @@ const Blog = ({blog, likePost, deletePost}) => {
       deletePost(blog.id)
     }
   }
-  
+
   const blogStyle = {
     paddingTop: 10,
     paddingLeft: 2,
@@ -29,7 +29,7 @@ const Blog = ({blog, likePost, deletePost}) => {
     <div style={blogStyle}>
       {blog.title}
       <button onClick={toggleVisibility}> view </button>
-      {visible && 
+      {visible &&
         (
           <div>
             <p>
@@ -48,7 +48,7 @@ const Blog = ({blog, likePost, deletePost}) => {
         )
       }
     </div>
-  )  
+  )
 }
 
 export default Blog
