@@ -38,11 +38,11 @@ const Blog = ({ blog, likePost, deletePost }) => {
           <div className='blog-detail'>
             <p>{blog.url}</p>
             <p>
-              {blog.likes}
+              <span className="like">{blog.likes}</span>
               <button onClick={handleLike} className='btn-like'>like</button>
             </p>
             <p>
-              <button onClick={handleRemove}>remove</button>
+              <button onClick={handleRemove} className='btn-remove'>remove</button>
             </p>
           </div>
         )

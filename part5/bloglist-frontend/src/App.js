@@ -41,6 +41,7 @@ const App = () => {
         <div>
           username
           <input
+            id="username"
             type="text"
             value={username}
             name="username"
@@ -50,6 +51,7 @@ const App = () => {
         <div>
           password
           <input
+            id="password"
             type="password"
             value={password}
             name="password"
@@ -57,7 +59,7 @@ const App = () => {
           />
         </div>
         <div>
-          <button type="submit">login</button>
+          <button type="submit" id="btn-login">login</button>
         </div>
       </form>
     </div>
