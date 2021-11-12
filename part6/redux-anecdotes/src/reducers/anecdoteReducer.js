@@ -1,6 +1,3 @@
-// const getId = () => (100000 * Math.random()).toFixed(0)
-import axios from 'axios'
-import anecdotes from '../services/anecdotes'
 import anecdoteService from '../services/anecdotes'
 
 const reducer = (state=[], action) => {
