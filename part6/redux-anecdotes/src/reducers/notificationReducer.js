@@ -9,16 +9,16 @@ const reducer = (state='', action) => {
   }
 }
 
-export const setMessage = (message) => {
-  return {
-    type:'SET_MSG',
-    message: message
-  }
-}
-
-export const resetMessage = () => {
-  return{
-    type: 'RESET_MSG'
+export const setMessage = (message, count) => {
+  return async dispatch => {
+    dispatch({
+      type:'SET_MSG',
+      message: message}
+    )
+    setTimeout(() => dispatch({
+        type: 'RESET_MSG'
+      }), count*1000
+    )
   }
 }
 
