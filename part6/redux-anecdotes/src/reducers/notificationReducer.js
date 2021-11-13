@@ -1,3 +1,5 @@
+let lastTimeout
+
 const reducer = (state='', action) => {
   switch(action.type){
     case'SET_MSG':
@@ -11,15 +13,16 @@ const reducer = (state='', action) => {
 
 export const setMessage = (message, count) => {
   return async dispatch => {
+    clearTimeout(lastTimeout)
     dispatch({
       type:'SET_MSG',
       message: message}
     )
-    setTimeout(() => dispatch({
+    lastTimeout = setTimeout(() => dispatch({
         type: 'RESET_MSG'
       }), count*1000
-    )
+    )     
   }
-}
+}       
 
 export default reducer
